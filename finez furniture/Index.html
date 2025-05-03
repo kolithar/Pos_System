@@ -29,10 +29,10 @@
                     <a id="Features-butt" class="nav-link" href="#features">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#pricing">Pricing</a>
+                    <a id="pricing-butt" class="nav-link" href="#pricing">Pricing</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a id="mor-butt" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         More
                     </a>
                     <ul class="dropdown-menu">
@@ -52,30 +52,55 @@
     <p>Welcome to the home section.</p>
 </section>
 
+
+
+
+
 <section id="features" class="p-5 text-center">
     <h2>Features</h2>
     <p>Explore the features of our service.</p>
 </section>
+
+
+
+
 
 <section id="pricing" class="p-5 bg-light text-center">
     <h2>Pricing</h2>
     <p>Choose a plan that fits your needs.</p>
 </section>
 
+
+
+
+
 <section id="action" class="p-5 text-center">
     <h2>Action</h2>
     <p>This is the Action dropdown section.</p>
 </section>
+
+
+
+
 
 <section id="another-action" class="p-5 bg-light text-center">
     <h2>Another Action</h2>
     <p>This is the Another Action dropdown section.</p>
 </section>
 
+
+
+
+
 <section id="something" class="p-5 text-center">
     <h2>Something Else</h2>
     <p>This is the Something Else dropdown section.</p>
 </section>
+
+
+
+
+
 
 
 <!-- Bootstrap JS Bundle -->
@@ -88,6 +113,7 @@
 <!--<script src="control/controller.js"></script>-->
 
 <script>
+
     $("#features").css("display", "none");
     $("#pricing").css("display", "none");
     $("#action").css("display", "none");
@@ -97,6 +123,7 @@
     $("#Features-butt").on('click', function () {
         $("#features").css("display", "block");
         $("#home").css("display", "none");
+        $("#pricing").css("display", "none");
         $("#action").css("display", "none");
         $("#another-action").css("display", "none");
         $("#something").css("display", "none");
@@ -106,24 +133,27 @@
         $("#features").css("display", "none");
         $("#home").css("display", "block");
         $("#action").css("display", "none");
+        $("#pricing").css("display", "none");
         $("#another-action").css("display", "none");
         $("#something").css("display", "none");
     })
 
-    $("#home-butt").on('click', function () {
+    $("#pricing-butt").on('click', function () {
         $("#features").css("display", "none");
-        $("#home").css("display", "block");
+        $("#home").css("display", "none");
         $("#action").css("display", "none");
+        $("#pricing").css("display", "block");
         $("#another-action").css("display", "none");
         $("#something").css("display", "none");
     })
 
-    $("#home-butt").on('click', function () {
+    $("#mor-butt").on('click', function () {
         $("#features").css("display", "none");
-        $("#home").css("display", "block");
-        $("#action").css("display", "none");
-        $("#another-action").css("display", "none");
-        $("#something").css("display", "none");
+        $("#home").css("display", "none");
+        $("#action").css("display", "block");
+        $("#pricing").css("display", "none");
+        $("#another-action").css("display", "block");
+        $("#something").css("display", "block");
     })
 
 </script>
