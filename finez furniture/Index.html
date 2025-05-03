@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navigation Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- Bootstrap CSS -->
-    <!-- Optional Smooth Scroll (CSS) -->
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+
+
 </head>
 <body>
 
@@ -28,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    <a id="home-butt" class="nav-link active" aria-current="page" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
+                    <a id="Features-butt" class="nav-link" href="#features">Features</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#pricing">Pricing</a>
@@ -84,24 +79,51 @@
 
 
 <!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="model/model.js"></script>
-<script src="js/view.js"></script>
-<script src="control/controller.js"></script>
+<script src="../lib/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
-
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="model/model.js"></script>-->
+<!--<script src="js/view.js"></script>-->
+<!--<script src="control/controller.js"></script>-->
 
 <script>
-    $("#course_content").css("display", "none");
+    $("#features").css("display", "none");
+    $("#pricing").css("display", "none");
+    $("#action").css("display", "none");
+    $("#another-action").css("display", "none");
+    $("#something").css("display", "none");
 
-    $("#course_nav").on('click', function () {
-        $("#course_content").css("display", "block");
-        $("#student_content").css("display", "none");
+    $("#Features-butt").on('click', function () {
+        $("#features").css("display", "block");
+        $("#home").css("display", "none");
+        $("#action").css("display", "none");
+        $("#another-action").css("display", "none");
+        $("#something").css("display", "none");
     })
 
-    $("#student_nav").on('click', function () {
-        $("#course_content").css("display", "none");
-        $("#student_content").css("display", "block");
+    $("#home-butt").on('click', function () {
+        $("#features").css("display", "none");
+        $("#home").css("display", "block");
+        $("#action").css("display", "none");
+        $("#another-action").css("display", "none");
+        $("#something").css("display", "none");
+    })
+
+    $("#home-butt").on('click', function () {
+        $("#features").css("display", "none");
+        $("#home").css("display", "block");
+        $("#action").css("display", "none");
+        $("#another-action").css("display", "none");
+        $("#something").css("display", "none");
+    })
+
+    $("#home-butt").on('click', function () {
+        $("#features").css("display", "none");
+        $("#home").css("display", "block");
+        $("#action").css("display", "none");
+        $("#another-action").css("display", "none");
+        $("#something").css("display", "none");
     })
 
 </script>
