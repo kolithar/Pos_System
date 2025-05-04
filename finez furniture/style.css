@@ -8,3 +8,16 @@ td button{
 td button i{
     font-size: 20px;
 }
+
+.modal-heder{
+    background: white;
+    color: gold;
+}
+
+.modal-body form{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+
+}

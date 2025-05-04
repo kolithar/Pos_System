@@ -174,7 +174,7 @@
     <p>Explore the features of our service.</p>
 <div class="row">
     <div class="col-12">
-        <button class="btn btn-primary" > New Item <i class="bi bi-diagram-2-fill"></i> </button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ItemForm" > New Item <i class="bi bi-diagram-2-fill"></i> </button>
     </div>
 </div>
     <div class="row">
@@ -257,7 +257,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
             </div>
+               <div class="modal-body">
+                   <form action="#" id="myForm">
 
+                       <div class="card imgholder">
+                           <label for="imgInput" class="upload" >
+                               <input type="file" name="" id="imgInput">
+                               <i class="bi bi-plus-circle-dotted"></i>
+                           </label>
+                     <img src="../Assets/sofa.jpeg">
+                       </div>
+
+                   </form>
+
+               </div>
         </div>
 
     </div>
