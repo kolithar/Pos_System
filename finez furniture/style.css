@@ -22,4 +22,10 @@ td button i{
 
 }
 
-.modal-body form .imgholder{}
+.modal-body form .imgholder{
+    flex-basis: 32%;
+    height: 100%;
+}
+.modal-body form .inputField{
+
+}
