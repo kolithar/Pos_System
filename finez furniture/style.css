@@ -27,5 +27,7 @@ td button i{
     height: 100%;
 }
 .modal-body form .inputField{
-
+    flex-basis: 68%;
+    border-left: 5px groove darkcyan;
+    padding-left: 20px;
 }
