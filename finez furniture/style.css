@@ -85,3 +85,12 @@ form .inputField > div label{
     color: red;
 
 }
+
+form .inputField > div input{
+    width: 75%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid blue;
+
+}
