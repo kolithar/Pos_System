@@ -80,3 +80,8 @@ form .inputField > div label{
     font-weight: 500;
 }
 
+#ItemForm form .inputField > div label::after{
+    content: "*";
+    color: red;
+
+}
