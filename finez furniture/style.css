@@ -65,3 +65,12 @@ td button i{
     border-left: 5px groove darkcyan;
     padding-left: 20px;
 }
+
+form .inputField > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
