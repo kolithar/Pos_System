@@ -4,5 +4,6 @@ export  default class itemModel{
         this.itemName=itemName;
         this.itemPrice=itemPrice;
         this.itemQuantity=itemQuantity;
+
     }
 }
