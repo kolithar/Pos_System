@@ -94,3 +94,7 @@ form .inputField > div input{
     border-bottom: 2px solid blue;
 
 }
+
+.modal-footer .submit{
+    font-size: 18px;
+}
