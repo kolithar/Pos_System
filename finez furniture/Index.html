@@ -225,7 +225,7 @@
                   <td>1</td>
                   <td>1</td>
                   <td>
-                      <button class="btn btn-success"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
                       <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
                       <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
 
@@ -266,7 +266,7 @@
                                <input type="file" name="" id="imgInput">
                                <i class="bi bi-plus-circle-dotted"></i>
                            </label>
-                     <img src="../Assets/sofa.jpeg" alt="" width="200" height="200">
+                     <img src="../Assets/sofa.jpeg" alt="" width="200" height="200" class="img">
                        </div>
                            <div class="inputField">
 
@@ -321,122 +321,97 @@
 </div>
 
 
+
+
+
+<!------------------------------------Read Data Modal---------------------->
+
+
+
+
+
+<div class="modal fade" id="readData">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-heder">
+                <h4 class="modal-title">Profile</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+                <form action="#" id=" R-myForm">
+
+
+                    <div class="card imgholder">
+                        <label for="imgInput" class="upload" >
+                            <input type="file" name="" id="R-imgInput">
+                            <i class="bi bi-plus-circle-dotted"></i>
+                        </label>
+                        <img src="../Assets/sofa.jpeg" alt="" width="200" height="200">
+                    </div>
+                    <div class="inputField">
+
+                        <div>
+                            <label for="Item.cord">item.cord:</label>
+                            <input type="number" name="" id="R-Item.cord" disabled>
+                        </div>
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" name="" id="R-name" disabled>
+                        </div>
+                        <div>
+                            <label for="bread">Bread:</label>
+                            <input type="text" name="" id="R-bread" disabled>
+                        </div>
+                        <div>
+                            <label for="date">Date:</label>
+                            <input type="text" name="" id="R-date" disabled>
+                        </div> <div>
+                        <label for="wood-material">Wood-material:</label>
+                        <input type="text" name="" id="R-wood-material" disabled>
+                    </div>
+                        <div>
+                            <label for="other-material">Other-material:</label>
+                            <input type="text" name="" id="R-other-material" disabled>
+                        </div>
+                        <div>
+                            <label for="price">Price:</label>
+                            <input type="text" name="" id="R-price" disabled>
+                        </div>
+                        <div>
+                            <label for="material-color">Material-color:</label>
+                            <input type="text" name="" id="R-material-color" disabled>
+                        </div>
+                        <div>
+                            <label for="Item-not">Item-not:</label>
+                            <input type="text" name="" id="R-Item-not" disabled>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
 <!--order Sections -->
 
 <section id="pricing" class="p-5 bg-light text-center">
     <h2>Pricing</h2>
     <p>Choose a plan that fits your needs.</p>
-
-
-    <section id="order_page">
-        <div id="orders" class="page container-fluid">
-            <!-- Header -->
-            <div class="d-flex align-items-center mb-4">
-                <i class="fas fa-shopping-cart fs-3 me-2"></i>
-                <h1 class="mb-0">Order Management</h1>
-            </div>
-
-            <div class="card shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Order Information</h5>
-                </div>
-                <div class="card-body">
-                    <form id="orderForm">
-                        <!-- Order Details Section -->
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label for="custId" class="form-label">Customer</label>
-                                <select class="form-select" id="custId">
-                                    <option selected disabled>Select customer</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="orderDate" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="orderDate">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card mb-3">
-            <div class="card-header bg-light">
-                <h6 class="mb-0">Add Items</h6>
-            </div>
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="itemSelect" class="form-label">Item</label>
-                        <select class="form-select" id="itemSelect">
-                            <option selected disabled>Select item</option>
-
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="quantity" class="form-label">Quantity</label>
-                        <input type="number" class="form-control" id="quantity" placeholder="0" min="1">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="itemTotal" class="form-label">Total</label>
-                        <input type="number" class="form-control" id="itemTotal" placeholder="0.00" readonly>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Order Buttons -->
-        <div class="d-flex gap-2">
-            <button type="button" id="placeOrderBtn" class="btn btn-success">
-                <i class="fas fa-check-circle me-1"></i> Place Order
-            </button>
-            <button type="button" id="updateOrderBtn" class="btn btn-warning">
-                <i class="fas fa-edit me-1"></i> Update
-            </button>
-            <button type="button" id="cancelOrderBtn" class="btn btn-danger">
-                <i class="fas fa-times-circle me-1"></i> Cancel
-            </button>
-            <button type="reset" id="newOrderBtn" class="btn btn-info">
-                <i class="fas fa-file me-1"></i> New Order
-            </button>
-        </div>
-        </form>
-        </div>
-        </div>
-
-        <!-- Orders Table -->
-        <div class="card shadow-sm">
-            <div class="card-header bg-success text-white">
-                <h5 class="mb-0">Order History</h5>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead class="table-success">
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Customer</th>
-                            <th>Items</th>
-                            <th>Unit Price</th>
-                            <th>Quantity</th>
-                            <th>Total Amount</th>
-                        </tr>
-                        </thead>
-                        <tbody id="order-tbody">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        </div>
-
-
-
-
-
-</section>
 </section>
 
 <!-- Customer Sections -->
@@ -491,6 +466,7 @@
             <tbody id="customer-tbody">
             </tbody>
         </table>
+
 
     </section>
 </section>
