@@ -1,0 +1,280 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar Styling */
+#headers {
+    background-color: #1f2833 !important;
+    padding: 15px 30px;
+}
+
+#h-content {
+    color: #f1c40f;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.navbar-nav .btn {
+    color: #fff;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.navbar-nav .btn:hover {
+    color: #f1c40f;
+}
+
+.navbar-toggler {
+    border-color: #f1c40f;
+}
+
+/* Navbar Sign Up / Login Buttons */
+.navbar .btn-outline-primary,
+.navbar .btn-outline-success {
+    border-radius: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar .btn-outline-primary:hover {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Section Titles */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2833;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #ced4da;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+#card-body-colour,
+#card-body-colour1,
+#card-body-colour2,
+#card-body-colour4 {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Tables */
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: #1f2833;
+    color: #f1c40f;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+}
+
+/* Responsive Headings and Buttons */
+@media (max-width: 768px) {
+    #headers h2, .navbar-nav .btn {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Section background for differentiation */
+#Customer, #Items, #Orders {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 30px auto;
+    width: 90%;
+}
+
+/* Custom Icons */
+h1 img {
+    margin-right: 10px;
+}
+
+/* Customer Section */
+#Customer {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+#Customer h1 {
+    color: #1f2833;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Form Inputs */
+#Customer .form-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#Customer input.form-control,
+#Customer input[type="text"] {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+#Customer input:focus {
+    border-color: #f1c40f;
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+}
+
+/* Customer Table */
+#Customer .table {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#Customer .table th {
+    background-color: #1f2833;
+    color: #f1c40f;
+}
+
+#Customer .table td {
+    background-color: #ffffff;
+}
+
+/* Action Buttons */
+#Customer .btn {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#Customer .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#Customer .btn-success:hover {
+    background-color: #218838;
+}
+
+#Customer .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#Customer .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+#Customer .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#Customer .btn-danger:hover {
+    background-color: #c82333;
+}
+
+#Customer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#Customer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* ==== ITEM SECTION - MODERN STYLE ==== */
+#Item {
+    background: linear-gradient(145deg, #121212, #1e1e1e);
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 1200px;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.1);
+}
+
+#Item h2 {
+    color: #f1c40f;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+/* === Form Section === */
+#Item .form-area {
+    background-color: #1c1c1c;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.1);
+}
