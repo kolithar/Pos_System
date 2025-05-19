@@ -278,3 +278,94 @@ h1 img {
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(241, 196, 15, 0.1);
 }
+#Item .form-label {
+    color: #f1c40f;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#Item .form-control {
+    background-color: #2b2b2b;
+    color: #fff;
+    border: 1px solid #f1c40f;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+
+#Item .form-control::placeholder {
+    color: #bbbbbb;
+}
+
+/* === Button Styles === */
+#Item .btn-warning {
+    background-color: #f1c40f;
+    color: #0c0c0c;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+#Item .btn-warning:hover {
+    background-color: #d4ac0d;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #f1c40f;
+}
+
+/* === Table Area === */
+#Item .table-area {
+    background-color: #1c1c1c;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+}
+
+#Item table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: white;
+    background-color: transparent;
+}
+
+#Item table thead {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+#Item table th,
+#Item table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+}
+
+#Item table tbody tr {
+    border-bottom: 1px solid #333;
+}
+
+#Item table tbody tr:hover {
+    background-color: #2b2b2b;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    #Item {
+        padding: 30px 15px;
+    }
+
+    #Item .btn-warning {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #Item .form-area,
+    #Item .table-area {
+        padding: 20px;
+    }
+}
+
