@@ -1,6 +1,6 @@
 import {Customer_db} from "../db/DB.js";
 
-import Customer from "../model/Customer.js";
+import Customer from "../model/CustomerModel.js";
 
 // load student records
 function loadCustomer() {
