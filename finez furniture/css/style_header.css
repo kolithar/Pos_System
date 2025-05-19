@@ -353,6 +353,9 @@ h1 img {
 }
 
 /* Responsive layout */
+
+
+
 @media (max-width: 768px) {
     #Item {
         padding: 30px 15px;
@@ -368,4 +371,3 @@ h1 img {
         padding: 20px;
     }
 }
-
