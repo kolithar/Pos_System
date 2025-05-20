@@ -1,117 +1,192 @@
-// DOM Elements
-const form = document.getElementById("itemForm");
-const imgInput = document.querySelector(".img");
-const fileInput = document.getElementById("imgInput");
+import { Item_db} from "../db/DB.js";
 
-const itemCode = document.getElementById("itemCode");
-const itemName = document.getElementById("itemName");
-const itemBread = document.getElementById("itemBread");
-const itemDate = document.getElementById("itemDate");
-const woodMaterial = document.getElementById("woodMaterial");
-const otherMaterial = document.getElementById("otherMaterial");
-const itemPrice = document.getElementById("itemPrice");
-const materialColor = document.getElementById("materialColor");
-const itemNote = document.getElementById("itemNote");
-const dataTable = document.getElementById("data");
+import ItemModel from "../model/ItemModel.js";
 
-// Image Preview Handling
-fileInput.onchange = function () {
-    const file = fileInput.files[0];
-    if (file && file.size < 1000000) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            imgInput.src = e.target.result;
-            imgInput.setAttribute("data-img", e.target.result); // Store for later saving
-        };
-        reader.readAsDataURL(file);
+
+function loadItem() {
+    $('#item-tbody').empty();
+    Item_db.map((item, index) => {
+        let ItemCode = item.ItemCode;
+        let ItemName = item.ItemName;
+        let QtyOnHand = item.QtyOnHand;
+        let PricePerUnit = item.PricePerUnit;
+
+
+
+        let data = `<tr>
+                            <td>${index + 1}</td>
+                            <td>${ItemCode}</td>
+                            <td>${ItemName}</td>
+                            <td>${QtyOnHand}</td>
+                            <td>${PricePerUnit}</td>
+                         
+                        </tr>`
+
+        $('#item-tbody').append(data);
+    })
+}
+
+// save
+$('#item_save').on('click', function(){
+    // let fname = document.getElementById('fname').value;
+    let ItemCode = $('#ItemCode').val();
+    let ItemName = $('#ItemName').val();
+    let QtyOnHand = $('#QtyOnHand').val();
+    let PricePerUnit = $('#PricePerUnit').val();
+
+    if(ItemCode === '' || ItemName === '' || QtyOnHand === '' || PricePerUnit === '' ) {
+        // alert("Invalid inputs!");
+
+        Swal.fire({
+            title: 'Error!',
+            text: 'Invalid Inputs',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
     } else {
-        alert("Image is too large (max 1MB).");
+
+
+        // let student_data = {
+        //     fname: fname,
+        //     lname: lname,
+        //     address: address
+        // };
+
+        let Item_data = new ItemModel(ItemCode,ItemName,QtyOnHand,PricePerUnit);
+
+        Item_db.push(Item_data);
+
+        console.log(Item_data);
+
+        loadItem();
+
+
+        Swal.fire({
+            title: "Added Successfully!",
+            icon: "success",
+            draggable: true
+        });
+        clearForm();
+
     }
-};
-
-// Retrieve from localStorage
-let itemData = localStorage.getItem("itemProfile")
-    ? JSON.parse(localStorage.getItem("itemProfile"))
-    : [];
-
-// Submit Handler
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const item = {
-        code: itemCode.value,
-        image: imgInput.getAttribute("data-img") || imgInput.src,
-        name: itemName.value,
-        bread: itemBread.value,
-        date: itemDate.value,
-        woodMaterial: woodMaterial.value,
-        otherMaterial: otherMaterial.value,
-        price: itemPrice.value,
-        color: materialColor.value,
-        note: itemNote.value
-    };
-
-    itemData.push(item);
-    localStorage.setItem("itemProfile", JSON.stringify(itemData));
-    renderTable();
-    form.reset();
-    imgInput.src = ""; // reset preview
-    bootstrap.Modal.getInstance(document.getElementById('itemFormModal')).hide();
 });
 
-// Render Table Rows
-function renderTable() {
-    dataTable.innerHTML = "";
-    itemData.forEach((item, index) => {
-        const row = `
-            <tr>
-                <td>${item.code}</td>
-                <td><img src="${item.image}" width="50" height="50"></td>
-                <td>${item.name}</td>
-                <td>${item.bread}</td>
-                <td>${item.date}</td>
-                <td>${item.price}</td>
-                <td>${item.woodMaterial}</td>
-                <td>${item.otherMaterial}</td>
-                <td><div style="width:25px; height:25px; background:${item.color}; margin:auto; border:1px solid #000;"></div></td>
-                <td>${item.note}</td>
-                <td>
-                    <button class="btn btn-success" onclick="viewItem(${index})"><i class="bi bi-eye"></i></button>
-                    <button class="btn btn-danger" onclick="deleteItem(${index})"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>`;
-        dataTable.innerHTML += row;
-    });
+$("#item-tbody").on('click', 'tr', function(){
+    let idx = $(this).index();
+    console.log(idx);
+    let obj = Item_db[idx];
+    console.log(obj);
+
+    let ItemCode = obj.ItemCode;
+    let ItemName = obj.ItemName;
+    let QtyOnHand = obj.QtyOnHand;
+    let PricePerUnit = obj.PricePerUnit;
+
+    $("#ItemCode").val(ItemCode);
+    $("#ItemName").val(ItemName);
+    $("#QtyOnHand").val(QtyOnHand);
+    $("#PricePerUnit").val(PricePerUnit);
+});
+
+function clearForm() {
+    $('#ItemCode').val('');
+    $('#ItemName').val('');
+    $('#QtyOnHand').val('');
+    $('#PricePerUnit').val('');
+    // // Reset edit mode
+    // isEditMode = false;
+    // editIndex = -1;
+    // // Change button text back to "Save"
+    // $('#customer_save').text('Save');
 }
+$('#item_update').on('click', function () {
+    let ItemCode = $('#ItemCode').val();
+    let ItemName = $('#ItemName').val();
+    let QtyOnHand =$('#QtyOnHand').val();
+    let PricePerUnit = $('#PricePerUnit').val();
 
-// View Item (Fill the read modal)
-function viewItem(index) {
-    const item = itemData[index];
-    document.getElementById("readItemCode").value = item.code;
-    document.getElementById("readItemName").value = item.name;
-    document.getElementById("readItemBread").value = item.bread;
-    document.getElementById("readItemDate").value = item.date;
-    document.getElementById("readWoodMaterial").value = item.woodMaterial;
-    document.getElementById("readOtherMaterial").value = item.otherMaterial;
-    document.getElementById("readItemPrice").value = item.price;
-    document.getElementById("readMaterialColor").value = item.color;
-    document.getElementById("readItemNote").value = item.note;
 
-    const readImg = document.querySelector("#readItemModal img");
-    readImg.src = item.image;
-
-    const modal = new bootstrap.Modal(document.getElementById("readItemModal"));
-    modal.show();
-}
-
-// Delete Item
-function deleteItem(index) {
-    if (confirm("Are you sure you want to delete this item?")) {
-        itemData.splice(index, 1);
-        localStorage.setItem("itemProfile", JSON.stringify(itemData));
-        renderTable();
+    if (ItemCode === '' || ItemName === '' || QtyOnHand === '' || PricePerUnit === '' ) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Select data to update!",
+        });
+        return;
     }
-}
 
-// On Load
-renderTable();
+    /*Find index of customer by ID*/
+    const index = Item_db.findIndex(c => c.ItemCode === ItemCode);
+
+    if (index !== -1) {
+        Item_db[index].ItemCode = ItemCode;
+        Item_db[index].ItemName = ItemName;
+        Item_db[index].QtyOnHand = QtyOnHand;
+        Item_db[index].PricePerUnit = PricePerUnit;
+
+        loadItem();
+        clearForm();
+
+        Swal.fire({
+            title: "Updated Successfully!",
+            icon: "success",
+            draggable: true
+        });
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Not Found",
+            text: "Item with ID " + ItemCode+ " does not exist.",
+        });
+    }
+});
+
+// -------------------------Delete Item--------------------------
+$('#item_delete').on('click', function () {
+    let ItemCode = $('#ItemCode').val();
+
+    if (ItemCode === '') {
+        Swal.fire({
+            icon: "warning",
+            title: "No ID",
+            text: "Please select a Item to delete.",
+        });
+        return;
+    }
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const index = Item_db.findIndex(c => c.ItemCode === ItemCode);
+            if (index !== -1) {
+                Item_db.splice(index, 1); // Remove from array
+                loadItem();
+                clearForm();
+                Swal.fire(
+                    "Deleted!",
+                    "Item has been deleted.",
+                    "success"
+                );
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Not Found",
+                    text: "Item with ID " +ItemCode + " does not exist.",
+                });
+            }
+        }
+    });
+});
+
+$('#item_reset').on('click',function () {
+    clearForm();
+})
+
+
