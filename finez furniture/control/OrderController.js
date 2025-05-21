@@ -95,6 +95,12 @@ $('#resetItemDetails').on('click',function () {
 
 // add to Cart function
 
+
+
+
+
+
+
 $('#addToOrder').on('click',function () {
 
     let itemID = $('#loadItemId').val();
@@ -139,6 +145,10 @@ $('#addToOrder').on('click',function () {
         });
     }
 })
+
+
+
+
 function loadOrderTable() {
     $('#order-body').empty();
     Order_db.map((order, index) => {
